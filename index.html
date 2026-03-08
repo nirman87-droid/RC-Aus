@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Australian Red Cross — CFO Point of View</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Syne:wght@400;500;600;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red:       #C0392B;
+  --red-deep:  #8B1A11;
+  --sand:      #F4EDE3;
+  --sand-mid:  #E8DDD0;
+  --clay:      #C8A882;
+  --clay-dark: #9B7D5A;
+  --earth:     #4A3728;
+  --charcoal:  #1E1510;
+  --warm-off:  #FAF5EF;
+  --moss:      #5F7052;
+  --ink:       #1E1610;
+  --slate:     #3A3530;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  background: var(--sand);
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+/* ── DOTS NAV ── */
+.nav {
+  position: fixed; right: 24px; top: 50%; transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 10px; z-index: 200;
+}
+.nav a {
+  width: 8px; height: 8px; border-radius: 50%;
+  border: 1.5px solid var(--clay); background: transparent;
+  opacity: 0.5; transition: all .25s;
+}
+.nav a.active, .nav a:hover {
+  background: var(--red); border-color: var(--red); opacity: 1; transform: scale(1.4);
+}
+
+/* ══════════════════
+   PAGE BASE
+══════════════════ */
+.page {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ══════════════════
+   PAGE 1 — COVER
+══════════════════ */
+#p1 {
+  background: var(--charcoal);
+}
+
+.p1-bg-texture {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 60% at 80% 110%, rgba(139,26,17,0.35) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 10% -5%, rgba(200,168,130,0.12) 0%, transparent 60%);
+}
+
+.p1-line-top {
+  position: absolute; top: 0; left: 64px; right: 64px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red) 0%, var(--clay) 40%, transparent 100%);
+}
+
+/* ARM Hub alignment badge */
+.arm-badge {
+  position: absolute; top: 28px; right: 64px;
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Syne', sans-serif; font-size: 10px;
+  font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(200,168,130,0.55);
+}
+.arm-badge::before {
+  content: ''; width: 28px; height: 1px; background: rgba(200,168,130,0.35);
+}
+
+/* Alignment pill */
+.align-pill {
+  position: absolute; top: 28px; left: 64px;
+  background: rgba(192,57,43,0.15);
+  border: 1px solid rgba(192,57,43,0.4);
+  border-radius: 2px; padding: 4px 12px;
+  font-family: 'Syne', sans-serif; font-size: 9px;
+  font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--clay);
+}
+
+.p1-inner {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  padding: 88px 64px 52px;
+}
+
+.p1-top {
+  display: flex; align-items: center; gap: 14px;
+}
+
+.red-cross-mark {
+  width: 34px; height: 34px; position: relative; flex-shrink: 0;
+}
+.red-cross-mark::before, .red-cross-mark::after {
+  content: ''; position: absolute; background: var(--red); border-radius: 1.5px;
+}
+.red-cross-mark::before { width: 100%; height: 34%; top: 33%; left: 0; }
+.red-cross-mark::after  { width: 34%; height: 100%; top: 0; left: 33%; }
+
+.p1-org {
+  font-family: 'Syne', sans-serif; font-size: 12px;
+  font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(200,168,130,0.6);
+}
+
+.p1-main { max-width: 720px; }
+
+/* The enterprise problem statement — echoing the ARM Hub */
+.enterprise-hook {
+  font-family: 'Syne', sans-serif; font-size: 11px;
+  font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.enterprise-hook span {
+  display: block; width: 36px; height: 1px; background: var(--red);
+}
+
+.p1-headline {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(38px, 5.5vw, 66px);
+  font-weight: 600; line-height: 1.07;
+  color: var(--warm-off);
+  margin-bottom: 36px;
+}
+.p1-headline em {
+  font-style: italic; color: var(--clay);
+}
+
+/* The problem echo line */
+.problem-echo {
+  background: rgba(200,168,130,0.07);
+  border-left: 2px solid var(--red);
+  padding: 16px 20px;
+  margin-bottom: 36px;
+  max-width: 600px;
+}
+.problem-echo p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px; font-style: italic;
+  color: rgba(250,245,239,0.65); line-height: 1.6;
+}
+.problem-echo .echo-source {
+  font-family: 'Syne', sans-serif; font-size: 9.5px;
+  font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--clay); opacity: 0.6; margin-top: 8px;
+}
+
+.p1-recipient {
+  font-family: 'Syne', sans-serif; font-size: 12px;
+  font-weight: 400; color: rgba(250,245,239,0.4);
+  line-height: 2;
+}
+.p1-recipient strong {
+  color: rgba(250,245,239,0.75); font-size: 14px; font-weight: 500; display: block;
+}
+
+.p1-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid rgba(200,168,130,0.12); padding-top: 22px;
+}
+.p1-pg { font-family: 'Syne', sans-serif; font-size: 10px; color: rgba(200,168,130,0.3); letter-spacing: 0.2em; }
+
+/* ══════════════════════════
+   PAGE 2 — THE PROBLEM + OPPORTUNITY
+══════════════════════════ */
+#p2 { background: var(--warm-off); }
+
+.p2-strip {
+  background: var(--earth);
+  padding: 44px 64px 36px;
+  position: relative;
+}
+.p2-strip::after {
+  content: ''; position: absolute; bottom: 0; left: 64px;
+  width: 56px; height: 2px; background: var(--red);
+}
+
+.section-tag {
+  font-family: 'Syne', sans-serif; font-size: 9.5px;
+  font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--clay); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-tag::before {
+  content: ''; display: block; width: 20px; height: 1px; background: var(--clay); opacity: 0.6;
+}
+
+.section-heading {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(24px, 3.2vw, 38px);
+  font-weight: 600; line-height: 1.15;
+  color: var(--warm-off);
+}
+.section-heading em { font-style: italic; color: var(--clay); }
+
+/* Alignment callout — tying back to ARM Hub */
+.alignment-callout {
+  margin: 0 64px;
+  background: rgba(192,57,43,0.06);
+  border: 1px solid rgba(192,57,43,0.15);
+  border-top: 2px solid var(--red);
+  padding: 22px 28px;
+  display: flex; gap: 20px; align-items: flex-start;
+}
+.callout-icon {
+  font-size: 18px; flex-shrink: 0; margin-top: 2px;
+}
+.callout-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px; font-style: italic;
+  color: var(--slate); line-height: 1.65;
+}
+.callout-text strong {
+  font-style: normal; font-weight: 600; color: var(--earth);
+  font-family: 'Syne', sans-serif; font-size: 11px;
+  letter-spacing: 0.06em; display: block; margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.p2-cols {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0; flex: 1; margin: 24px 64px 0;
+  padding-bottom: 52px;
+}
+
+.p2-col-left { padding-right: 40px; border-right: 1px solid var(--sand-mid); }
+.p2-col-right { padding-left: 40px; }
+
+.col-label {
+  font-family: 'Syne', sans-serif; font-size: 10px;
+  font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--clay-dark); margin-bottom: 22px; padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--sand-mid);
+  position: relative;
+}
+.col-label::after {
+  content: ''; position: absolute; bottom: -1.5px; left: 0;
+  width: 32px; height: 1.5px; background: var(--red);
+}
+
+/* Problem list */
+.problem-item {
+  display: grid; grid-template-columns: 28px 1fr;
+  gap: 12px; margin-bottom: 20px;
+  animation: fadeUp .55s ease both;
+}
+.problem-item:nth-child(2) { animation-delay: .08s; }
+.problem-item:nth-child(3) { animation-delay: .16s; }
+.problem-item:nth-child(4) { animation-delay: .24s; }
+
+.prob-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; font-weight: 700; line-height: 1.1;
+  color: var(--clay); opacity: 0.4;
+}
+
+.prob-body h4 {
+  font-family: 'Syne', sans-serif; font-size: 12px;
+  font-weight: 600; color: var(--earth); margin-bottom: 5px;
+  letter-spacing: 0.02em;
+}
+.prob-body p {
+  font-size: 13px; color: var(--slate); line-height: 1.6;
+}
+
+/* AI capability cards */
+.ai-card {
+  background: var(--earth);
+  padding: 20px 22px 16px;
+  margin-bottom: 14px;
+  position: relative;
+  animation: fadeUp .55s ease both;
+}
+.ai-card:nth-child(2) { animation-delay: .1s; }
+.ai-card:nth-child(3) { animation-delay: .2s; }
+.ai-card:nth-child(4) { animation-delay: .3s; }
+
+.ai-card::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 2px; background: var(--red);
+}
+
+.ai-card-label {
+  font-family: 'Syne', sans-serif; font-size: 10px;
+  font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--clay); margin-bottom: 6px;
+}
+.ai-card p {
+  font-size: 12.5px; color: rgba(250,245,239,0.6); line-height: 1.55;
+}
+
+/* Page footer bar */
+.page-footer-bar {
+  background: var(--sand-mid);
+  padding: 16px 64px;
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid var(--clay);
+}
+.pf-left { display: flex; align-items: center; gap: 10px; }
+.pf-cross { width: 18px; height: 18px; position: relative; }
+.pf-cross::before, .pf-cross::after {
+  content: ''; position: absolute; background: var(--red); border-radius: 1px;
+}
+.pf-cross::before { width: 100%; height: 34%; top: 33%; left: 0; }
+.pf-cross::after  { width: 34%; height: 100%; top: 0; left: 33%; }
+.pf-org { font-family: 'Syne', sans-serif; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay-dark); opacity: 0.6; }
+.pf-pg { font-family: 'Syne', sans-serif; font-size: 10px; letter-spacing: 0.18em; color: var(--clay-dark); opacity: 0.4; }
+
+/* ══════════════════════════
+   PAGE 3 — ROADMAP + CLOSE
+══════════════════════════ */
+#p3 { background: var(--sand); }
+
+.p3-strip {
+  background: var(--earth);
+  padding: 44px 64px 36px;
+  position: relative;
+}
+.p3-strip::after {
+  content: ''; position: absolute; bottom: 0; left: 64px;
+  width: 56px; height: 2px; background: var(--clay);
+}
+.p3-strip .section-heading { color: var(--warm-off); }
+
+.p3-phases {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  margin: 28px 64px 0;
+}
+
+.phase {
+  padding: 30px 26px 24px;
+  position: relative;
+  animation: fadeUp .6s ease both;
+}
+.phase:nth-child(1) { background: var(--warm-off); animation-delay: 0s; }
+.phase:nth-child(2) { background: var(--sand-mid); animation-delay: .1s; }
+.phase:nth-child(3) { background: var(--earth); color: var(--warm-off); animation-delay: .2s; }
+
+.phase::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+}
+.phase:nth-child(1)::before { background: var(--clay); }
+.phase:nth-child(2)::before { background: var(--red); }
+.phase:nth-child(3)::before { background: var(--clay); }
+
+.phase-bg-num {
+  position: absolute; top: 14px; right: 18px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px; font-weight: 700; line-height: 1;
+  color: var(--clay); opacity: 0.12;
+}
+.phase:nth-child(3) .phase-bg-num { opacity: 0.18; }
+
+.phase-tag {
+  font-family: 'Syne', sans-serif; font-size: 9px;
+  font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--clay-dark); margin-bottom: 8px;
+}
+.phase:nth-child(2) .phase-tag { color: var(--red-deep); }
+.phase:nth-child(3) .phase-tag { color: var(--clay); }
+
+.phase-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-weight: 600; line-height: 1.2;
+  color: var(--earth); margin-bottom: 14px;
+}
+.phase:nth-child(3) .phase-title { color: var(--warm-off); }
+
+.phase-list { list-style: none; }
+.phase-list li {
+  font-size: 12px; color: #5a4a3a; padding: 5px 0 5px 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  position: relative; line-height: 1.5;
+}
+.phase-list li::before {
+  content: '—'; position: absolute; left: 0;
+  color: var(--clay); font-size: 11px;
+}
+.phase:nth-child(3) .phase-list li {
+  color: rgba(250,245,239,0.65);
+  border-bottom-color: rgba(255,255,255,0.07);
+}
+
+.phase-outcome {
+  margin-top: 14px; padding: 9px 12px;
+  background: rgba(0,0,0,0.04);
+  font-family: 'Syne', sans-serif; font-size: 10.5px;
+  font-weight: 500; color: var(--clay-dark); font-style: italic;
+  line-height: 1.5;
+}
+.phase:nth-child(3) .phase-outcome {
+  background: rgba(255,255,255,0.07); color: var(--clay);
+}
+
+/* Why now band */
+.why-now {
+  margin: 28px 64px 0;
+  display: grid; grid-template-columns: 1.1fr 1fr;
+  gap: 3px;
+}
+
+.why-quote-block {
+  background: var(--red-deep);
+  padding: 36px 36px 36px 40px;
+  position: relative;
+}
+.why-quote-block::before {
+  content: '\201C';
+  position: absolute; top: 10px; left: 28px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 80px; color: rgba(200,168,130,0.25); line-height: 1;
+}
+.why-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 400; font-style: italic;
+  color: rgba(250,245,239,0.9); line-height: 1.55;
+  padding-top: 16px;
+}
+
+/* ARM alignment note */
+.arm-align-note {
+  background: rgba(74,55,40,0.07);
+  border-top: 1.5px solid var(--clay);
+  padding: 12px 40px;
+  margin-top: 3px;
+}
+.arm-align-note p {
+  font-family: 'Syne', sans-serif; font-size: 10px;
+  font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--clay-dark); opacity: 0.7;
+  display: flex; align-items: center; gap: 8px;
+}
+.arm-align-note p::before {
+  content: '↗'; font-size: 12px; color: var(--red);
+}
+
+.why-right-block {
+  background: var(--earth);
+  padding: 36px 32px;
+}
+.why-right-tag {
+  font-family: 'Syne', sans-serif; font-size: 9px;
+  font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--clay); margin-bottom: 18px;
+}
+.why-item {
+  display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px;
+}
+.why-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--clay); flex-shrink: 0; margin-top: 7px;
+}
+.why-text { font-size: 12.5px; color: rgba(250,245,239,0.68); line-height: 1.55; }
+
+/* Next steps */
+.next-steps {
+  margin: 20px 64px 0;
+  padding: 22px 28px;
+  background: var(--warm-off);
+  border-left: 3px solid var(--red);
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
+.ns-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px; font-style: italic; color: var(--earth); line-height: 1.5;
+}
+.ns-cta {
+  font-family: 'Syne', sans-serif; font-size: 10px;
+  font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--red); white-space: nowrap; border-bottom: 1px solid var(--red);
+  padding-bottom: 2px;
+}
+
+.p3-footer {
+  background: var(--charcoal);
+  padding: 20px 64px;
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: auto;
+}
+.p3f-left { display: flex; align-items: center; gap: 10px; }
+.p3f-cross { width: 18px; height: 18px; position: relative; }
+.p3f-cross::before, .p3f-cross::after {
+  content: ''; position: absolute; background: var(--red); border-radius: 1px;
+}
+.p3f-cross::before { width: 100%; height: 34%; top: 33%; left: 0; }
+.p3f-cross::after  { width: 34%; height: 100%; top: 0; left: 33%; }
+.p3f-org { font-family: 'Syne', sans-serif; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(200,168,130,0.4); }
+.p3f-pg { font-family: 'Syne', sans-serif; font-size: 10px; letter-spacing: 0.18em; color: rgba(200,168,130,0.25); }
+.p3f-hub { font-family: 'Syne', sans-serif; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(200,168,130,0.3); }
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.p1-inner > * { animation: fadeUp .65s ease both; }
+.p1-inner > *:nth-child(1) { animation-delay: .1s; }
+.p1-inner > *:nth-child(2) { animation-delay: .25s; }
+.p1-inner > *:nth-child(3) { animation-delay: .4s; }
+.p1-inner > *:nth-child(4) { animation-delay: .55s; }
+
+/* Responsive */
+@media (max-width: 860px) {
+  .p1-inner, .p2-cols, .p3-phases, .why-now, .next-steps, .alignment-callout, .arm-align-note { margin-left: 28px; margin-right: 28px; }
+  .p2-strip, .p1-inner, .p3-strip, .page-footer-bar, .p3-footer { padding-left: 28px; padding-right: 28px; }
+  .align-pill { left: 28px; }
+  .arm-badge { right: 28px; }
+  .p2-cols { grid-template-columns: 1fr; }
+  .p2-col-left { border-right: none; border-bottom: 1px solid var(--sand-mid); padding-right: 0; padding-bottom: 28px; margin-bottom: 28px; }
+  .p2-col-right { padding-left: 0; }
+  .p3-phases { grid-template-columns: 1fr; }
+  .why-now { grid-template-columns: 1fr; }
+}
+
+/* ══════════════════════════
+   PAGE 4 — PHASED APPROACH
+══════════════════════════ */
+#p4 {
+  background: var(--warm-off);
+}
+
+.p4-strip {
+  background: var(--charcoal);
+  padding: 28px 64px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-bottom: 3px solid var(--red);
+  position: relative;
+}
+.p4-strip::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: var(--red);
+}
+.p4-eyebrow {
+  font-family: 'Syne', sans-serif;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--clay);
+  opacity: 0.7;
+}
+.p4-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 600;
+  color: var(--warm-off);
+  line-height: 1.15;
+}
+.p4-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(14px, 1.8vw, 18px);
+  color: var(--clay);
+  margin-top: 2px;
+}
+
+.p4-table-wrap {
+  flex: 1;
+  padding: 24px 64px 0;
+  overflow-x: auto;
+}
+
+.p4-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: 'Lato', sans-serif;
+  font-size: 11.5px;
+}
+
+/* Column header row */
+.p4-table thead tr {
+  background: var(--earth);
+}
+.p4-table thead th {
+  padding: 9px 11px 9px;
+  font-family: 'Syne', sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--clay);
+  border-bottom: 2px solid var(--red);
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+.p4-table thead th:first-child {
+  border-left: 3px solid var(--red);
+  padding-left: 14px;
+}
+
+/* Phase rows */
+.p4-table tbody tr {
+  border-bottom: 1px solid rgba(74,55,40,0.12);
+  transition: background 0.15s;
+}
+.p4-table tbody tr:hover {
+  background: rgba(200,168,130,0.07);
+}
+.p4-table tbody td {
+  padding: 10px 11px;
+  vertical-align: top;
+  line-height: 1.45;
+  color: var(--slate);
+  border-bottom: 1px solid rgba(74,55,40,0.10);
+}
+.p4-table tbody td:first-child {
+  border-left: 3px solid transparent;
+  padding-left: 14px;
+}
+
+/* Phase number + name cell */
+.phase-cell {
+  min-width: 160px;
+}
+.phase-num {
+  display: inline-block;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--earth);
+  color: var(--clay);
+  font-family: 'Syne', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+  margin-bottom: 4px;
+  flex-shrink: 0;
+}
+.phase-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--earth);
+  line-height: 1.3;
+  display: block;
+  margin-top: 2px;
+}
+.phase-timeline {
+  font-family: 'Syne', sans-serif;
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--red);
+  text-transform: uppercase;
+  display: block;
+  margin-top: 4px;
+}
+
+/* Focus area */
+.focus-cell {
+  min-width: 110px;
+  font-style: italic;
+  color: var(--clay-dark);
+  font-size: 11px;
+}
+
+/* Activities list */
+.activities-cell {
+  min-width: 180px;
+}
+.act-list {
+  list-style: none;
+  padding: 0; margin: 0;
+}
+.act-list li {
+  padding-left: 12px;
+  position: relative;
+  margin-bottom: 3px;
+  font-size: 11px;
+  color: var(--slate);
+}
+.act-list li::before {
+  content: '–';
+  position: absolute; left: 0;
+  color: var(--clay);
+}
+
+/* Deliverables */
+.deliv-cell {
+  min-width: 155px;
+}
+.deliv-list {
+  list-style: none;
+  padding: 0; margin: 0;
+}
+.deliv-list li {
+  padding-left: 14px;
+  position: relative;
+  margin-bottom: 3px;
+  font-size: 11px;
+  color: var(--slate);
+}
+.deliv-list li::before {
+  content: '→';
+  position: absolute; left: 0;
+  color: var(--red);
+  font-size: 9px;
+  top: 1px;
+}
+
+/* Value measurement */
+.value-cell {
+  min-width: 160px;
+  font-size: 10.5px;
+  color: var(--clay-dark);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* Row accent colours by phase group */
+.p4-table tbody tr:nth-child(1) td:first-child { border-left-color: #C0392B; }
+.p4-table tbody tr:nth-child(2) td:first-child { border-left-color: #9B2E21; }
+.p4-table tbody tr:nth-child(3) td:first-child { border-left-color: #7D1E14; }
+.p4-table tbody tr:nth-child(4) td:first-child { border-left-color: #C0392B; }
+.p4-table tbody tr:nth-child(5) td:first-child { border-left-color: #9B7D5A; }
+.p4-table tbody tr:nth-child(6) td:first-child { border-left-color: #7A5C38; }
+.p4-table tbody tr:nth-child(7) td:first-child { border-left-color: #5F4528; }
+
+/* Phase group dividers */
+.p4-table tbody tr.phase-group-break td {
+  border-top: 2px solid rgba(192,57,43,0.25);
+}
+
+.p4-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 64px;
+  background: var(--charcoal);
+  margin-top: 20px;
+  font-family: 'Syne', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: rgba(200,168,130,0.35);
+}
+.p4f-left { display: flex; align-items: center; gap: 10px; }
+.p4f-cross {
+  width: 12px; height: 12px;
+  background: var(--red);
+  clip-path: polygon(38% 0,62% 0,62% 38%,100% 38%,100% 62%,62% 62%,62% 100%,38% 100%,38% 62%,0 62%,0 38%,38% 38%);
+}
+.p4f-org { text-transform: uppercase; letter-spacing: 0.18em; }
+
+@media (max-width: 900px) {
+  .p4-table-wrap { padding: 16px 28px 0; }
+  .p4-strip { padding: 20px 28px 18px; }
+  .p4-footer { padding: 12px 28px; }
+  .p4-table { font-size: 10px; }
+}
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="#p1" class="active" title="Cover"></a>
+  <a href="#p2" title="The Problem & Opportunity"></a>
+  <a href="#p3" title="Roadmap & Closing"></a>
+</nav>
+
+<!-- ══════════════ PAGE 1 — COVER ══════════════ -->
+<section class="page" id="p1">
+  <div class="p1-bg-texture"></div>
+  <div class="p1-line-top"></div>
+  <div class="align-pill">Aligned with ARM Hub Enterprise AI Strategy</div>
+  <div class="arm-badge">Confidential · CFO Advisory</div>
+
+  <div class="p1-inner">
+    <div class="p1-top">
+      <div class="red-cross-mark"></div>
+      <span class="p1-org">Australian Red Cross</span>
+    </div>
+
+    <div class="p1-main">
+      <div class="enterprise-hook"><span></span>Point of View</div>
+      <h1 class="p1-headline">
+        Strengthening<br>
+        <em>Financial Sustainability</em><br>
+        Through AI-Enabled<br>Performance Architecture
+      </h1>
+
+      <div class="problem-echo">
+        <p>Enterprise complexity has created fragmented data, manual processes, and limited real-time visibility — slowing decision-making precisely when strategic clarity is most needed.</p>
+        <div class="echo-source">↗ Aligned with ARM Hub Enterprise AI Agent Strategy</div>
+      </div>
+
+      <div class="p1-recipient">
+        Prepared for
+        <strong>Mr Jean-Baptiste Naudet</strong>
+        Chief Financial Officer · Australian Red Cross
+      </div>
+    </div>
+
+    <div class="p1-footer">
+      <span class="p1-pg">01 / 03</span>
+      <span class="p1-pg">ARM Hub · CFO Advisory</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ PAGE 2 — PROBLEM + OPPORTUNITY ══════════════ -->
+<section class="page" id="p2">
+  <div class="p2-strip">
+    <div class="section-tag">Understanding Your Context</div>
+    <h2 class="section-heading">Your Strategic Priorities &amp; the<br><em>AI Intelligence Opportunity</em></h2>
+  </div>
+
+  <!-- ARM alignment callout — bridges group deck to individual session -->
+  <div class="alignment-callout" style="margin-top:24px;">
+    <div class="callout-icon">🔗</div>
+    <div class="callout-text">
+      <strong>ARM Hub Point of View — Applied to Your Context</strong>
+      ARM Hub's view is that enterprise SaaS complexity and fragmented data are slowing organisational decision-making. For Australian Red Cross, this manifests specifically as manual reporting layers, disconnected grant and program data, and limited forward-looking financial insight. The AI agent layer addresses these directly.
+    </div>
+  </div>
+
+  <div class="p2-cols">
+    <!-- LEFT: Your specific priorities -->
+    <div class="p2-col-left">
+      <div class="col-label">Your 6–18 Month Priorities</div>
+
+      <div class="problem-item">
+        <div class="prob-num">1</div>
+        <div class="prob-body">
+          <h4>System Complexity Without Replacement</h4>
+          <p>ERP platforms, grant tools, donor databases and volunteer systems — individually functional, but fragmented. ARM Hub's view is clear: complexity is slowing the business. The answer is an orchestration layer, not rip-and-replace.</p>
+        </div>
+      </div>
+
+      <div class="problem-item">
+        <div class="prob-num">2</div>
+        <div class="prob-body">
+          <h4>Financial Sustainability at $1.1B Scale</h4>
+          <p>Cost-to-program transparency, grant compliance, overhead ratio management, and scenario modelling for funding volatility. Sustainability is a forward-looking capability — not just a historical outcome.</p>
+        </div>
+      </div>
+
+      <div class="problem-item">
+        <div class="prob-num">3</div>
+        <div class="prob-body">
+          <h4>Finance as Strategic Decision Support</h4>
+          <p>Inconsistent KPIs across programs, manual board packs, limited predictive insight. The inflection point: transitioning finance from reporting history to shaping decisions — exactly where AI agents create highest value.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: AI capability layer -->
+    <div class="p2-col-right">
+      <div class="col-label">AI Agent Layer — ARC Applications</div>
+
+      <div class="ai-card">
+        <div class="ai-card-label">🔒 Expense &amp; Payment Governance</div>
+        <p>Anomaly detection on claims, duplicate vendor detection, grant-restricted spend compliance, risk-based approval automation — strengthening controls without adding headcount.</p>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-card-label">🤝 Volunteer Operations Intelligence</div>
+        <p>Volunteer demand analytics by program and geography, cost-per-volunteer tracking, rostering optimisation — connecting operational effort with financial impact at board level.</p>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-card-label">📊 Sustainability Reporting &amp; Scenario Intelligence</div>
+        <p>Real-time dashboards, automated board packs, dynamic funding scenario modelling, early warning indicators — transforming reporting from compliance to strategic clarity.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer-bar">
+    <div class="pf-left">
+      <div class="pf-cross"></div>
+      <span class="pf-org">Australian Red Cross</span>
+    </div>
+    <span class="pf-pg">02 / 03</span>
+  </div>
+</section>
+
+<!-- ══════════════ PAGE 3 — ROADMAP + CLOSING ══════════════ -->
+<section class="page" id="p3">
+  <div class="p3-strip">
+    <div class="section-tag">A Practical Path Forward</div>
+    <h2 class="section-heading">Financial &amp; Performance<br><em>Intelligence Architecture</em></h2>
+  </div>
+
+  <div class="p3-phases">
+    <div class="phase">
+      <span class="phase-bg-num">1</span>
+      <div class="phase-tag">Phase One · Assess</div>
+      <div class="phase-title">Performance &amp; Data Maturity Assessment</div>
+      <ul class="phase-list">
+        <li>Review of current KPI frameworks</li>
+        <li>Financial &amp; operational data flow mapping</li>
+        <li>Manual reporting layer identification</li>
+        <li>Sustainability risk mapping</li>
+        <li>AI automation opportunity scan</li>
+      </ul>
+      <div class="phase-outcome">→ Clear performance architecture blueprint</div>
+    </div>
+
+    <div class="phase">
+      <span class="phase-bg-num">2</span>
+      <div class="phase-tag">Phase Two · Implement</div>
+      <div class="phase-title">AI-Enabled Control Layer</div>
+      <ul class="phase-list">
+        <li>Consolidated sustainability dashboard</li>
+        <li>Expense &amp; payment anomaly detection</li>
+        <li>Grant compliance monitoring</li>
+        <li>Automated executive reporting</li>
+        <li>Text-based financial data querying</li>
+      </ul>
+      <div class="phase-outcome">→ Real-time executive clarity without new core systems</div>
+    </div>
+
+    <div class="phase">
+      <span class="phase-bg-num">3</span>
+      <div class="phase-tag">Phase Three · Optimise</div>
+      <div class="phase-title">Continuous Intelligence &amp; Optimisation</div>
+      <ul class="phase-list">
+        <li>Predictive funding scenario modelling</li>
+        <li>Volunteer operations intelligence</li>
+        <li>Cost-to-impact transparency</li>
+        <li>AI-assisted planning cycles</li>
+      </ul>
+      <div class="phase-outcome">→ A forward-looking, data-mature finance function</div>
+    </div>
+  </div>
+
+  <div class="why-now">
+    <div>
+      <div class="why-quote-block">
+        <div class="why-quote">
+          For an organisation of the scale and public trust of Australian Red Cross, the opportunity is not simply automation — it is strengthening the financial intelligence backbone that supports mission delivery.
+        </div>
+      </div>
+      <div class="arm-align-note">
+        <p>ARM Hub AI Agent Strategy — translated to your finance function</p>
+      </div>
+    </div>
+
+    <div class="why-right-block">
+      <div class="why-right-tag">Why This Approach, Why Now</div>
+      <div class="why-item"><div class="why-dot"></div><div class="why-text">Protect financial sustainability in the post-turnaround phase</div></div>
+      <div class="why-item"><div class="why-dot"></div><div class="why-text">Grounded in ARM Hub's point of view on enterprise AI adoption — applied to your specific data landscape</div></div>
+      <div class="why-item"><div class="why-dot"></div><div class="why-text">Increase transparency for donors, regulators, and the board</div></div>
+      <div class="why-item"><div class="why-dot"></div><div class="why-text">Reduce administrative overhead across distributed operations</div></div>
+      <div class="why-item"><div class="why-dot"></div><div class="why-text">Build data maturity without wholesale system replacement</div></div>
+    </div>
+  </div>
+
+  <div class="next-steps">
+    <div class="ns-text">We propose a focused discovery session to map your current data architecture against the performance intelligence blueprint — and identify the highest-value AI agent applications for ARC specifically.</div>
+    <div class="ns-cta">Proposed Next Step →</div>
+  </div>
+
+  <div class="p3-footer">
+    <div class="p3f-left">
+      <div class="p3f-cross"></div>
+      <span class="p3f-org">Australian Red Cross</span>
+    </div>
+    <span class="p3f-hub">ARM Hub · Enterprise AI Agent Strategy</span>
+    <span class="p3f-pg">03 / 04</span>
+  </div>
+</section>
+
+
+<section class="page" id="p4">
+  <div class="p4-strip">
+    <div class="p4-eyebrow">AI-Enabled Finance Architecture</div>
+    <div class="p4-title">Phased Approach to Value Realisation</div>
+    <div class="p4-subtitle">A structured, seven-phase delivery model — from problem discovery to proven impact</div>
+  </div>
+
+  <div class="p4-table-wrap">
+    <table class="p4-table">
+      <thead>
+        <tr>
+          <th style="width:14%">Phase</th>
+          <th style="width:10%">Focus Area</th>
+          <th style="width:26%">Key Activities</th>
+          <th style="width:24%">Key Deliverables</th>
+          <th style="width:26%">Value Measurement</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="phase-cell">
+            <span class="phase-num">1</span>
+            <span class="phase-name">Strategic Problem Discovery</span>
+            <span class="phase-timeline">Weeks 1–3</span>
+          </td>
+          <td class="focus-cell">Define sustainability &amp; performance priorities</td>
+          <td class="activities-cell">
+            <ul class="act-list">
+              <li>Executive workshops with CFO, Finance &amp; Ops</li>
+              <li>Define financial sustainability metrics (overhead %, cost-to-program, compliance thresholds)</li>
+              <li>Identify reporting friction and baseline current metrics</li>
+            </ul>
+          </td>
+          <td class="deliv-cell">
+            <ul class="deliv-list">
+              <li>Defined problem statement</li>
+              <li>Prioritised use cases</li>
+              <li>Baseline KPI report</li>
+              <li>Value hypothesis</li>
+            </ul>
+          </td>
+          <td class="value-cell">Baseline of reporting cycle time, expense approval time, compliance review effort, administrative cost ratio</td>
+        </tr>
+
+        <tr>
+          <td class="phase-cell">
+            <span class="phase-num">2</span>
+            <span class="phase-name">Current-State Process &amp; Control Mapping</span>
+            <span class="phase-timeline">Weeks 3–6</span>
+          </td>
+          <td class="focus-cell">Map finance &amp; volunteer workflows</td>
+          <td class="activities-cell">
+            <ul class="act-list">
+              <li>Document expense approvals, corporate payments, grant tracking, volunteer reimbursement, board reporting cycle</li>
+              <li>Identify manual reconciliations &amp; risk points</li>
+            </ul>
+          </td>
+          <td class="deliv-cell">
+            <ul class="deliv-list">
+              <li>As-Is process maps</li>
+              <li>Risk heatmap</li>
+              <li>Control gap assessment</li>
+              <li>Automation opportunity matrix</li>
+            </ul>
+          </td>
+          <td class="value-cell">% manual steps identified; reconciliation bottlenecks quantified; risk exposure areas documented</td>
+        </tr>
+
+        <tr>
+          <td class="phase-cell">
+            <span class="phase-num">3</span>
+            <span class="phase-name">Future-State Design &amp; Governance Blueprint</span>
+            <span class="phase-timeline">Weeks 6–8</span>
+          </td>
+          <td class="focus-cell">Design improved operating model</td>
+          <td class="activities-cell">
+            <ul class="act-list">
+              <li>Define streamlined workflows &amp; monitoring thresholds</li>
+              <li>Establish governance and escalation pathways</li>
+              <li>Design audit trail &amp; compliance controls</li>
+            </ul>
+          </td>
+          <td class="deliv-cell">
+            <ul class="deliv-list">
+              <li>To-Be process design</li>
+              <li>Governance framework</li>
+              <li>Monitoring &amp; control architecture</li>
+              <li>Compliance documentation</li>
+            </ul>
+          </td>
+          <td class="value-cell">Governance approval of new control model; clarity of KPI ownership; risk mitigation plan endorsed</td>
+        </tr>
+
+        <tr class="phase-group-break">
+          <td class="phase-cell">
+            <span class="phase-num">4</span>
+            <span class="phase-name">Controlled Pilot Implementation</span>
+            <span class="phase-timeline">Weeks 9–16</span>
+          </td>
+          <td class="focus-cell">Deploy first intelligent monitoring capability</td>
+          <td class="activities-cell">
+            <ul class="act-list">
+              <li>Integrate with selected finance systems</li>
+              <li>Configure monitoring logic; deploy to limited scope</li>
+              <li>Track baseline vs post-deployment performance</li>
+            </ul>
+          </td>
+          <td class="deliv-cell">
+            <ul class="deliv-list">
+              <li>Live pilot environment</li>
+              <li>Executive monitoring dashboard</li>
+              <li>Pilot performance report</li>
+            </ul>
+          </td>
+          <td class="value-cell">Reduction in duplicate payments; faster approval cycle time; earlier detection of compliance risks</td>
+        </tr>
+
+        <tr>
+          <td class="phase-cell">
+            <span class="phase-num">5</span>
+            <span class="phase-name">Performance Intelligence Activation</span>
+            <span class="phase-timeline">Months 4–6</span>
+          </td>
+          <td class="focus-cell">Automate reporting &amp; sustainability visibility</td>
+          <td class="activities-cell">
+            <ul class="act-list">
+              <li>Build real-time sustainability dashboard</li>
+              <li>Harmonise KPIs across programs</li>
+              <li>Automate board reporting pack generation</li>
+              <li>Implement executive data access layer</li>
+            </ul>
+          </td>
+          <td class="deliv-cell">
+            <ul class="deliv-list">
+              <li>Executive performance cockpit</li>
+              <li>Automated board reporting outputs</li>
+              <li>Harmonised KPI framework</li>
+            </ul>
+          </td>
+          <td class="value-cell">Reduction in reporting prep time; improved cost-to-program visibility; faster executive insight cycle</td>
+        </tr>
+
+        <tr>
+          <td class="phase-cell">
+            <span class="phase-num">6</span>
+            <span class="phase-name">Embedding &amp; Training</span>
+            <span class="phase-timeline">Months 5–7</span>
+          </td>
+          <td class="focus-cell">Institutional adoption</td>
+          <td class="activities-cell">
+            <ul class="act-list">
+              <li>Role-based training for finance &amp; operations</li>
+              <li>Update SOPs; embed monitoring into approval workflows</li>
+              <li>Establish internal ownership &amp; governance checkpoints</li>
+            </ul>
+          </td>
+          <td class="deliv-cell">
+            <ul class="deliv-list">
+              <li>Updated operating procedures</li>
+              <li>Trained users across finance &amp; ops</li>
+              <li>Adoption tracking metrics</li>
+            </ul>
+          </td>
+          <td class="value-cell">User adoption rate; reduction in manual review workload; improved compliance confidence</td>
+        </tr>
+
+        <tr>
+          <td class="phase-cell">
+            <span class="phase-num">7</span>
+            <span class="phase-name">Value Measurement &amp; Scaling</span>
+            <span class="phase-timeline">Months 6–9</span>
+          </td>
+          <td class="focus-cell">Prove impact &amp; expand</td>
+          <td class="activities-cell">
+            <ul class="act-list">
+              <li>Compare baseline vs post-implementation metrics</li>
+              <li>Quantify efficiency gains</li>
+              <li>Identify next expansion areas (volunteer analytics, grant compliance, funding scenario modelling)</li>
+            </ul>
+          </td>
+          <td class="deliv-cell">
+            <ul class="deliv-list">
+              <li>CFO Value Realisation Report</li>
+              <li>Quantified ROI summary</li>
+              <li>Phase 2 scaling roadmap</li>
+            </ul>
+          </td>
+          <td class="value-cell">Measured administrative cost reduction; improved sustainability monitoring accuracy; strengthened governance transparency</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="p4-footer">
+    <div class="p4f-left">
+      <div class="p4f-cross"></div>
+      <span class="p4f-org">Australian Red Cross</span>
+    </div>
+    <span>ARM Hub · Point of View</span>
+    <span>04 / 04</span>
+  </div>
+</section>
+
+<script>
+  const pages = document.querySelectorAll('.page');
+  const dots = document.querySelectorAll('.nav a');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        dots.forEach(d => d.classList.remove('active'));
+        const dot = document.querySelector(`.nav a[href="#${e.target.id}"]`);
+        if (dot) dot.classList.add('active');
+      }
+    });
+  }, { threshold: 0.5 });
+  pages.forEach(p => io.observe(p));
+</script>
+</body>
+</html>
