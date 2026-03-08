@@ -782,6 +782,150 @@ body {
   .p4-table { font-size: 10px; }
 }
 
+
+/* ══════════════════════════
+   PAGE 3 — FINANCIAL INTELLIGENCE MATURITY
+══════════════════════════ */
+.maturity-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+  margin: 28px 64px 0;
+}
+
+.maturity-stage {
+  position: relative;
+  padding: 28px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  animation: fadeUp .6s ease both;
+}
+.maturity-stage:nth-child(1) { background: var(--warm-off); animation-delay: 0s; }
+.maturity-stage:nth-child(2) { background: var(--sand-mid); animation-delay: .08s; }
+.maturity-stage:nth-child(3) { background: var(--earth); animation-delay: .16s; }
+.maturity-stage:nth-child(4) { background: var(--charcoal); animation-delay: .24s; }
+
+/* Top accent bar */
+.maturity-stage::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.maturity-stage:nth-child(1)::before { background: var(--clay); }
+.maturity-stage:nth-child(2)::before { background: var(--clay-dark); }
+.maturity-stage:nth-child(3)::before { background: var(--red); }
+.maturity-stage:nth-child(4)::before { background: var(--red); }
+
+/* Stage number ghost */
+.maturity-bg-num {
+  position: absolute; top: 10px; right: 14px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px; font-weight: 700; line-height: 1;
+  opacity: 0.09;
+  pointer-events: none;
+}
+.maturity-stage:nth-child(1) .maturity-bg-num,
+.maturity-stage:nth-child(2) .maturity-bg-num { color: var(--earth); opacity: 0.08; }
+.maturity-stage:nth-child(3) .maturity-bg-num,
+.maturity-stage:nth-child(4) .maturity-bg-num { color: var(--clay); opacity: 0.14; }
+
+/* Stage label */
+.maturity-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 8.5px; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.maturity-stage:nth-child(1) .maturity-label { color: var(--clay-dark); }
+.maturity-stage:nth-child(2) .maturity-label { color: var(--clay-dark); }
+.maturity-stage:nth-child(3) .maturity-label { color: var(--clay); }
+.maturity-stage:nth-child(4) .maturity-label { color: var(--clay); }
+
+/* Stage name */
+.maturity-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px; font-weight: 600; line-height: 1.2;
+  margin-bottom: 10px;
+}
+.maturity-stage:nth-child(1) .maturity-name,
+.maturity-stage:nth-child(2) .maturity-name { color: var(--earth); }
+.maturity-stage:nth-child(3) .maturity-name,
+.maturity-stage:nth-child(4) .maturity-name { color: var(--warm-off); }
+
+/* Descriptor */
+.maturity-desc {
+  font-size: 12px; line-height: 1.6;
+  margin-bottom: 14px; flex: 1;
+}
+.maturity-stage:nth-child(1) .maturity-desc,
+.maturity-stage:nth-child(2) .maturity-desc { color: var(--slate); }
+.maturity-stage:nth-child(3) .maturity-desc { color: rgba(250,245,239,0.65); }
+.maturity-stage:nth-child(4) .maturity-desc { color: rgba(250,245,239,0.55); }
+
+/* Capability list */
+.maturity-caps {
+  list-style: none; padding: 0; margin: 0 0 14px;
+  border-top: 1px solid rgba(0,0,0,0.07);
+  padding-top: 12px;
+}
+.maturity-stage:nth-child(3) .maturity-caps,
+.maturity-stage:nth-child(4) .maturity-caps { border-top-color: rgba(255,255,255,0.08); }
+
+.maturity-caps li {
+  font-size: 11.5px; line-height: 1.5;
+  padding: 4px 0 4px 14px; position: relative;
+}
+.maturity-caps li::before {
+  content: '–'; position: absolute; left: 0;
+  font-size: 11px;
+}
+.maturity-stage:nth-child(1) .maturity-caps li { color: #5a4a3a; }
+.maturity-stage:nth-child(1) .maturity-caps li::before { color: var(--clay); }
+.maturity-stage:nth-child(2) .maturity-caps li { color: #5a4a3a; }
+.maturity-stage:nth-child(2) .maturity-caps li::before { color: var(--clay-dark); }
+.maturity-stage:nth-child(3) .maturity-caps li { color: rgba(250,245,239,0.6); }
+.maturity-stage:nth-child(3) .maturity-caps li::before { color: var(--clay); }
+.maturity-stage:nth-child(4) .maturity-caps li { color: rgba(250,245,239,0.5); }
+.maturity-stage:nth-child(4) .maturity-caps li::before { color: var(--clay); }
+
+/* ARC indicator */
+.maturity-indicator {
+  font-family: 'Syne', sans-serif;
+  font-size: 9.5px; font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 6px 10px;
+  border-radius: 2px;
+  display: inline-block;
+  margin-top: auto;
+}
+.arc-current {
+  background: rgba(192,57,43,0.12);
+  border: 1px solid rgba(192,57,43,0.35);
+  color: var(--red);
+}
+.arc-target {
+  background: rgba(200,168,130,0.1);
+  border: 1px solid rgba(200,168,130,0.3);
+  color: var(--clay-dark);
+}
+.maturity-stage:nth-child(3) .arc-target,
+.maturity-stage:nth-child(4) .arc-target {
+  color: var(--clay);
+  border-color: rgba(200,168,130,0.25);
+}
+
+/* Progression arrow between stages */
+.maturity-arrow {
+  display: none; /* handled by grid gap + stage design */
+}
+
+@media (max-width: 900px) {
+  .maturity-grid { grid-template-columns: 1fr 1fr; margin: 20px 28px 0; }
+}
+@media (max-width: 560px) {
+  .maturity-grid { grid-template-columns: 1fr; }
+}
+
 </style>
 </head>
 <body>
@@ -789,7 +933,8 @@ body {
 <nav class="nav">
   <a href="#p1" class="active" title="Cover"></a>
   <a href="#p2" title="The Problem & Opportunity"></a>
-  <a href="#p3" title="Roadmap & Closing"></a>
+  <a href="#p3" title="Financial Intelligence Maturity"></a>
+  <a href="#p4" title="Delivery Approach"></a>
 </nav>
 
 <!-- ══════════════ PAGE 1 — COVER ══════════════ -->
@@ -826,7 +971,7 @@ body {
     </div>
 
     <div class="p1-footer">
-      <span class="p1-pg">01 / 03</span>
+      <span class="p1-pg">01 / 04</span>
       <span class="p1-pg">ARM Hub · CFO Advisory</span>
     </div>
   </div>
@@ -904,58 +1049,79 @@ body {
       <div class="pf-cross"></div>
       <span class="pf-org">Australian Red Cross</span>
     </div>
-    <span class="pf-pg">02 / 03</span>
+    <span class="pf-pg">02 / 04</span>
   </div>
 </section>
 
-<!-- ══════════════ PAGE 3 — ROADMAP + CLOSING ══════════════ -->
+<!-- ══════════════ PAGE 3 — FINANCIAL INTELLIGENCE MATURITY ══════════════ -->
 <section class="page" id="p3">
   <div class="p3-strip">
-    <div class="section-tag">A Practical Path Forward</div>
-    <h2 class="section-heading">Financial &amp; Performance<br><em>Intelligence Architecture</em></h2>
+    <div class="section-tag">Financial Intelligence Maturity</div>
+    <h2 class="section-heading">Where Is ARC Today —<br><em>And Where Should It Be?</em></h2>
   </div>
 
-  <div class="p3-phases">
-    <div class="phase">
-      <span class="phase-bg-num">1</span>
-      <div class="phase-tag">Phase One · Assess</div>
-      <div class="phase-title">Performance &amp; Data Maturity Assessment</div>
-      <ul class="phase-list">
-        <li>Review of current KPI frameworks</li>
-        <li>Financial &amp; operational data flow mapping</li>
-        <li>Manual reporting layer identification</li>
-        <li>Sustainability risk mapping</li>
-        <li>AI automation opportunity scan</li>
+  <div class="maturity-grid">
+
+    <!-- Stage 1: Reactive -->
+    <div class="maturity-stage">
+      <span class="maturity-bg-num">1</span>
+      <div class="maturity-label">Stage 1 · Reactive</div>
+      <div class="maturity-name">Reporting After the Fact</div>
+      <div class="maturity-desc">Finance produces historical reports. Decisions rely on month-end close cycles. Issues surface late — after spend has occurred or risks have materialised.</div>
+      <ul class="maturity-caps">
+        <li>Manual consolidation of spreadsheets</li>
+        <li>Board packs prepared from scratch each cycle</li>
+        <li>No real-time visibility of overhead or grant spend</li>
+        <li>Compliance reviews reactive, not preventive</li>
       </ul>
-      <div class="phase-outcome">→ Clear performance architecture blueprint</div>
+      <span class="maturity-indicator arc-current">↙ Many NFPs operate here</span>
     </div>
 
-    <div class="phase">
-      <span class="phase-bg-num">2</span>
-      <div class="phase-tag">Phase Two · Implement</div>
-      <div class="phase-title">AI-Enabled Control Layer</div>
-      <ul class="phase-list">
-        <li>Consolidated sustainability dashboard</li>
-        <li>Expense &amp; payment anomaly detection</li>
-        <li>Grant compliance monitoring</li>
-        <li>Automated executive reporting</li>
-        <li>Text-based financial data querying</li>
+    <!-- Stage 2: Controlled -->
+    <div class="maturity-stage">
+      <span class="maturity-bg-num">2</span>
+      <div class="maturity-label">Stage 2 · Controlled</div>
+      <div class="maturity-name">Standardised &amp; Governed</div>
+      <div class="maturity-desc">Core financial controls are in place. KPIs are defined. Reporting is consistent but still largely manual. Systems exist but are not connected.</div>
+      <ul class="maturity-caps">
+        <li>Defined KPI framework across programs</li>
+        <li>Consistent approval workflows in place</li>
+        <li>ERP, expense &amp; grant systems operational</li>
+        <li>Audit-ready — but labour intensive</li>
       </ul>
-      <div class="phase-outcome">→ Real-time executive clarity without new core systems</div>
+      <span class="maturity-indicator arc-current">← ARC's current position</span>
     </div>
 
-    <div class="phase">
-      <span class="phase-bg-num">3</span>
-      <div class="phase-tag">Phase Three · Optimise</div>
-      <div class="phase-title">Continuous Intelligence &amp; Optimisation</div>
-      <ul class="phase-list">
+    <!-- Stage 3: Intelligent -->
+    <div class="maturity-stage">
+      <span class="maturity-bg-num">3</span>
+      <div class="maturity-label">Stage 3 · Intelligent</div>
+      <div class="maturity-name">Real-Time Oversight &amp; Automation</div>
+      <div class="maturity-desc">An AI coordination layer connects existing systems, monitors in real time, and automates routine governance — freeing the finance team for strategic work.</div>
+      <ul class="maturity-caps">
+        <li>Continuous sustainability &amp; compliance monitoring</li>
+        <li>Anomaly detection on expenses &amp; payments</li>
+        <li>Automated board reporting packs</li>
+        <li>Executive dashboard with early warning indicators</li>
+      </ul>
+      <span class="maturity-indicator arc-target">→ Near-term target (6–12 months)</span>
+    </div>
+
+    <!-- Stage 4: Strategic -->
+    <div class="maturity-stage">
+      <span class="maturity-bg-num">4</span>
+      <div class="maturity-label">Stage 4 · Strategic</div>
+      <div class="maturity-name">Predictive &amp; Forward-Looking</div>
+      <div class="maturity-desc">Finance drives organisational strategy. AI-assisted planning, predictive modelling, and cost-to-impact analytics transform the CFO function into a forward intelligence capability.</div>
+      <ul class="maturity-caps">
         <li>Predictive funding scenario modelling</li>
-        <li>Volunteer operations intelligence</li>
-        <li>Cost-to-impact transparency</li>
-        <li>AI-assisted planning cycles</li>
+        <li>Volunteer cost-to-impact analytics</li>
+        <li>AI-assisted budget planning cycles</li>
+        <li>Cross-program performance benchmarking</li>
       </ul>
-      <div class="phase-outcome">→ A forward-looking, data-mature finance function</div>
+      <span class="maturity-indicator arc-target">→ Medium-term ambition (12–24 months)</span>
     </div>
+
   </div>
 
   <div class="why-now">
